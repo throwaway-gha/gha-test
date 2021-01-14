@@ -1,18 +1,13 @@
 name: ctf1
 on:
   pull_request_target:
-  push:
-    branches: [main]
 jobs:
   ctf1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        if: github.event_name == 'pull_request_target'
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
-      - uses: actions/checkout@v2
-        if: github.event_name != 'pull_request_target'
       - name: run tests
         run: make test
         env:
