@@ -2,7 +2,7 @@ name: ctf1
 on:
   pull_request_target:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   ctf1:
     runs-on: ubuntu-latest
